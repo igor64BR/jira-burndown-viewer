@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-const chartSize = "30%";
+const chartSize = "35%";
 
 const styles = StyleSheet.create({
   body: {
@@ -21,7 +21,6 @@ const styles = StyleSheet.create({
     height: chartSize,
     width: chartSize,
     padding: 10,
-
     flexGrow: 2,
   },
 

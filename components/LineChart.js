@@ -14,9 +14,23 @@ export function LineChart({ lines, style }) {
     />
   ));
 
+  const maxValue = Math.max(...lines.flat().map((x) => x.y));
+
+  const yValues = [
+    0,
+    maxValue * 0.25,
+    maxValue * 0.5,
+    maxValue * 0.75,
+    maxValue,
+    maxValue * 1.1,
+  ].map((value) => Math.round(value));
+
   return (
     <View style={style}>
-      <VictoryChart theme={VictoryTheme.material} padding={{ bottom: 45 }}>
+      <VictoryChart
+        theme={VictoryTheme.material}
+        padding={{ bottom: 45, left: 30, right: 30 }}
+      >
         <VictoryAxis
           fixLabelOverlap
           style={{
@@ -34,6 +48,7 @@ export function LineChart({ lines, style }) {
               fill: "#F4EEE0",
             },
           }}
+          tickValues={yValues}
         />
         {lineComponents}
       </VictoryChart>

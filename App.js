@@ -8,7 +8,7 @@ import { View, Text, StyleSheet } from "react-native";
 export default function App() {
   const data = transformData(jsonData);
 
-  const linesData = Object.entries(data).map(([status, dates]) =>
+  const formattedLines = Object.entries(data).map(([status, dates]) =>
     Object.keys(dates).map((date) => {
       const [_, month, day] = date.split("-");
       return {
@@ -44,7 +44,7 @@ export default function App() {
       <View style={styles.header}>
         <Text style={styles.headerText}>Jira Tasks' Burndown</Text>
       </View>
-      <LineChart style={styles.chart} lines={linesData} />
+      <LineChart style={styles.chart} lines={formattedLines} />
       <View style={styles.legendRegion}>{legends}</View>
     </View>
   );
